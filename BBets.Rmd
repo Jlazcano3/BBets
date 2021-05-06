@@ -145,9 +145,11 @@ hist(saveBank)
 
 ```
 
+
 ```{r}
 favstats(saveBank)
 ```
+
 
 ```{r}
 sortedBank <- sort(saveBank)
@@ -157,10 +159,13 @@ print(paste(lcl,ucl))
 ```
 
 The lower confidence intervals that Dr. J would win 220, ucl 340. 
+
+
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
 
 
+In conclusion, in order for Dr.J's profit to center zero he should $4.25 to 1. If the pay out is at 2:1 a class size of 28 would make the payoff fair. The 95% confidence interval for Dr.J return is 'r lcl' to 'r ucl'.
 
 
