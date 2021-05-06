@@ -74,10 +74,39 @@ favstats(saveBank)
 The average amount Dr.J could make is around $32. According to this chart the minimum amount Dr.J could lose is $124. The max Dr.J could win is $144. 
 
 
-
-
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
+
+
+```{r}
+
+classSize = 28
+winAmount= 1
+loseAmount= 2.00
+
+test = vector('numeric')
+saveBank=vector('numeric')
+for (j in 1:30){
+  bank=0
+  for(i in 1:637){
+    test = sample(URN, size=classSize, replace=TRUE)
+ifelse(length(unique(test))==classSize,
+(bank=bank-loseAmount),(bank=bank+winAmount))
+saveBank[j]=bank
+}
+}
+
+hist(saveBank)
+
+
+```
+
+
+```{r}
+favstats(saveBank)
+```
+
+In order for the bet to be fair there should be at least 26 students. 
 
 
 # In the class and payoff as described what is a 95% confidence interval for Brownlow's earnings?
@@ -85,7 +114,53 @@ The average amount Dr.J could make is around $32. According to this chart the mi
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
 
+```{r}
+URN = 1.365
+```
+
+
+
+# What is Brownlow's average profit/loss
+
+
+```{r}
+classSize = 35
+winAmount= 1
+loseAmount= 2.00
+
+test = vector('numeric')
+saveBank=vector('numeric')
+for (j in 1:1000){
+  bank=0
+  for(i in 1:637){
+    test = sample(URN, size=classSize, replace=TRUE)
+ifelse(length(unique(test))==classSize,
+(bank=bank-loseAmount),(bank=bank+winAmount))
+saveBank[j]=bank
+}
+}
+
+hist(saveBank)
+
+
+```
+
+```{r}
+favstats(saveBank)
+```
+
+```{r}
+sortedBank <- sort(saveBank)
+lcl <- sortedBank[25]
+ucl <- sortedBank[975]
+print(paste(lcl,ucl))
+```
+
+The lower confidence intervals that Dr. J would win 220, ucl 340. 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
+
+
+
 
